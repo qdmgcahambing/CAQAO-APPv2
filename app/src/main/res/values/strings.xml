@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">CAQAO</string>
+    <string name="title_activity_upload">UploadActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="welcome_msg">Improve quality assessment of dried fermented cacao beans using CAQAO. Assess quality of cacao beans in batches and learn more about the overall quality of cacao beans. </string>
+
+    <!-- card descriptions -->
+    <string name="defects_description">Defective beans are cacao beans that are mouldy, insect-infested, slaty, and germinated. If a bean presents two or more defects, the defect that counts as the worse condition is the one that appears first in the list. The list is in descending order of importance; with mouldy having the highest importance and germinated having the lowest importance. </string>
+    <string name="mouldy_description">Mold present on parts of the cacao bean which is visible to the naked eye.</string>
+    <string name="germinated_description">Shell of the cacao which have been pierced, slit or broken by a growth of the seed germ or presence of radicle.</string>
+    <string name="insect_description">Cacao bean of which its parts are found to contain insects or have been damaged by insects.</string>
+    <string name="slate_description">Cacao bean which is unfissured and shows a purple-gray color on half or more of the surface.</string>
+
+    <string name="color_description">Cacao beans which has undergone fermentation process of which the cotyledons are fissured with color ranging from brown, partly purple, total purple, and very dark brown.</string>
+    <string name="color_brown_description">Cacao beans that have light to dark brown coloration. These cacao beans are fully fermented and used to make high-quality cacao products.</string>
+    <string name="color_partlypurple_description">Cacao beans that has a mix of purple and brown coloration. These cacao beans are likely not fully ripe or mature.</string>
+    <string name="color_totalpurple_description">Total purple beans are cacao beans that has a fully purple coloration. These cacao beans are not ripe or mature. </string>
+    <string name="color_verydarkbrown_description">Cacao beans that has a very dark brown or black coloration on its surface. These cacao beans are likely overfermented or fermented for too long. </string>
+
+    <string name="fissuring_description">Fissuring is characterized by the opening up of large splits or rifts within the beans\' internal structure. Beans that are heavily fissured are generally more fermented than beans that have a cheesy or slate appearance when cut. </string>
+    <string name="g1_description">Cacao beans with grade 1 fissuring are fully fermented cacao beans. Almost all of its surface is heavily fissured or has small branch-like lines. </string>
+    <string name="g2_description">Cacao beans with grade 2 fissuring are partially fermented cacao beans. Fissures have formed on its surface but is still smooth in some areas. </string>
+    <string name="g3_description">Cacao beans with grade 3 fissuring are slightly fermented cacao beans. It is lightly fissured or has a few branch-like lines on its surface. </string>
+    <string name="g4_description">Cacao beans with grade 4 fissuring are unfermented and is characterized with a cut bean surface that is relatively smooth. </string>
+    <!-- end of card descriptions -->
+
+    <string name="bean_grade">Bean Grade: %s</string>
+    <string name="date">Date: %s</string>
+
+    <string name="beangrading_description">Cacao bean grading is the classification of cacao beans according to bean size and the proportion of defective beans to good beans.</string>
+
+    <!-- Results legends -->
+    <string name="grade1a">
+        •  Highest quality\n
+        •  Large and uniform in \n\t\tsize\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade1b">
+        •  Higher quality\n
+        •  Large but less\n\t\t uniform in size\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade1c">
+        •  High quality\n
+        •  Smaller and uneven \n\t\t in size\n
+        •  Few minor defects\n
+        •  Fully fermented and \n\t\t dried properly
+    </string>
+
+    <string name="grade2a">
+        •  Low quality\n
+        •  Large and uniform in \n\t\tsize\n
+        •  More noticeable\n\t\t defects\n
+        •  Imperfect or uneven\n\t\t fermentation
+    </string>
+
+    <string name="grade2b">
+        •  Lower quality\n
+        •  Large but less\n\t\t uniform in size\n
+        •  More noticeable\n\t\t defects\n
+        •  Imperfect or uneven\n\t\t fermentation
+    </string>
+
+    <string name="grade2c">
+        •  Lowest quality\n
+        •  Smaller and uneven \n\t\t in size\n
+        •  More noticeable\n\t\t defects\n
+        •  Imperfect or uneven\n\t\t fermentation\n
+        •  For industrial use only
+    </string>
+    <!-- end of results legends -->
+
+    <!-- BeanGradeFragment Legends-->
+    <string name="beangrade_description">Cacao bean grading is the classification of cacao beans according to bean size and the proportion of defective beans to good beans.</string>
+    <string name="beangrade1a">Highest quality, large and uniform in size, few minor defects, fully fermented and dried properly.</string>
+    <string name="beangrade1b">Higher quality, large but less uniform in size, few minor defects, fully fermented and dried properly.</string>
+    <string name="beangrade1c">High quality, smaller and uneven, in size, few minor defects, fully fermented and dried properly.</string>
+    <string name="beangrade2a">Low quality, large and uniform in size, more noticeable defects, imperfect or uneven fermentation.</string>
+    <string name="beangrade2b">Lower quality, large but less uniform in size, imperfect or uneven fermentation.</string>
+    <string name="beangrade2c">Lowest quality, smaller and uneven in size, imperfect or uneven fermentation, only suitable for industrial applications.</string>
+    <!-- end of beangradefragment legends -->
+
+    <!-- FAQ answers -->
+    <string name="answer1">CAQAO or the Cacao Automated Quality Assessment using Object Detection is an app that allows you to capture cut test cacao beans and automatically assess its quality.</string>
+    <string name="answer2">Cacao beans subjected to cut test or beans that are cut lengthwise are classified through three (3) classification groups: Defects, Color, and Fissuring. The classification is based on the International Standards for Cocoa Quality and Flavour (ISCQF). </string>
+    <string name="answer3">Cacao beans are graded according to the bean size and proportion of defective beans to good beans. The grading is based on the Philippine National Standard for Cacao or cocoa beans - specification and grading (PNS/BAFS 58:;2019).</string>
+    <string name="answer4">In the Bottom navigation bar, click the assess button or the button at the center. Click "Take a photo" option. Allow the app to use the camera app and proceed to capture. To use the photo, click the check button. To retake the photo, click the cross button.</string>
+    <string name="answer5">In the Bottom navigation bar, click the assess button or the button at the center. Click "Upload Image" option. Allow the app to access the gallery app and select the photo. </string>
+    <string name="answer6">To create an account, click the Sign Up button. Fill the information fields including username and password. Click Sign Up button. Proceed to sign in.</string>
+    <string name="answer7">To sign in, click the Sign In button. In the fields, use the username and password provided during sign up. Click Sign In.</string>
+    <string name="answer8">To view capture images, navigate to gallery page by clicking the gallery icon in the bottom navigation.</string>
+    <string name="answer9">To assess the photo, click Assess button in the Quality Assess Capture page after capturing or uploading a photo. Enter bean count, then click Assess button.</string>
+    <string name="answer10">Bean size is the total number of cacao beans required per 100 grams.</string>
+
+    <string name="beancutting_description">Bean cutting is an important step in the process of evaluating the quality of cacao beans, and it must be done properly to ensure that all beans are cut cleanly and accurately. If the cutting is not done correctly, there is a risk of missing some beans, which can affect the accuracy of the evaluation and the quality of the final product.</string>
+    <string name="step1_description">Cacao beans should be carefully oriented with the cutting bed chamber. The long side of the bean should be lined up with the long side of the cutting bed. </string>
+    <string name="step2_description">After filling all the guillotine chambers with 50 cacao beans, carefully close the cacao bean guillotine. </string>
+    <string name="step3_description">Lock the cacao bean guillotine using the latch engaged by finger tightening and the top lock. This ensures to just hold the cutter closed when the guillotine is used.</string>
+    <string name="step4_description">Place the cacao bean guillotine on its two feet on the floor or low table and the blade is inserted to begin cutting.</string>
+    <string name="step5_description">Apply even pressure on the blade for a smooth and even cut and lower it down until it comes to a stop with the handle on the top of the cutting block.</string>
+    <string name="step6_description">Lay the cacao bean guillotine on a flat table and undo the top lock and latch opening. </string>
+    <string name="step7_description">After unlocking the cacao bean guillotine, carefully open the guillotine. </string>
+
+
+</resources>

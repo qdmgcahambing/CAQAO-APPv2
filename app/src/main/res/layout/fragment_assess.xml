@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.AssessFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.caqao.models.CacaoDetectionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <LinearLayout
+            android:id="@+id/assessRoundedRectangle"
+            android:layout_width="415dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/rounded_rectangle_down"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/selected_img"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:src="@{viewModel.selectedImage}"
+            />
+
+        <TextView
+            android:id="@+id/qaCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/lato_black"
+            android:text="Quality Assess Capture"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assessRoundedRectangle" />
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato"
+            android:text="Image must contain cacao\nbeans in a guillotine."
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusErrorTextView="@{viewModel.imageValidationStatus}"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/title_beanCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato"
+            android:text="Bean size:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusTextView="@{viewModel.imageValidationStatus}"/>
+
+
+        <TextView
+            android:id="@+id/subtitle_beanCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/lato"
+            android:textStyle="italic"
+            android:text="(number of beans per 100g)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/title_beanCount"
+            app:layout_constraintTop_toBottomOf="@+id/qaCapture"
+            app:imageValidationStatusTextView="@{viewModel.imageValidationStatus}"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/beanCountInputLayout"
+            style="@style/Widget.CAQAO.TextInputLayout"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:hint="Enter bean size"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_beanCount"
+            app:imageValidationStatusTextInputLayout="@{viewModel.imageValidationStatus}">
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/beanCountInputEditText"
+                android:paddingTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:hintAnimationEnabled="true"
+                android:textAlignment="center"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:backgroundTint="@color/colorSecondaryLight"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/assess_btn"
+            android:layout_width="132dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/sign_in_btn"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@color/colorSecondaryLight"
+            android:text="Assess"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:imageValidationStatusButton="@{viewModel.imageValidationStatus}"/>
+
+        <Button
+            android:id="@+id/capture_again_btn"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/sign_in_btn"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@color/colorSecondaryLight"
+            android:text="Retake/Reupload Image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/errorMessage"
+            app:imageValidationStatusButtonError="@{viewModel.imageValidationStatus}"
+            android:visibility="invisible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

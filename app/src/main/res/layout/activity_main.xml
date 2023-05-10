@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorBackground">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawerLayout">
+
+        <RelativeLayout
+            android:id="@+id/my_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navGraph="@navigation/nav_graph">
+
+<!--            <com.google.android.material.appbar.AppBarLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+<!--                android:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"
+                style="@style/Theme.Transparent.Toolbar"
+                android:elevation="4dp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+<!--            </com.google.android.material.appbar.AppBarLayout>-->
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph"
+                android:layout_marginTop="55dp"
+                />
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+                    android:id="@+id/bottomNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mbn_backgroundBottomColor="#391D0C"
+                    app:mbn_defaultIconColor="@color/design_default_color_on_primary"
+                    app:mbn_rippleColor="#2f424242"
+                    app:mbn_circleColor="@color/colorSecondaryDark"
+                    app:mbn_selectedIconColor="@color/colorPrimary"
+                    app:mbn_shadowColor="#1f212121"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:background="@color/transparent"
+                    app:layout_scrollFlags="scroll|enterAlways" >
+
+                </com.etebarian.meowbottomnavigation.MeowBottomNavigation>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/ic_focus"
+                    app:backgroundTint="@color/colorSecondaryDark"
+                    app:elevation="6dp"
+                    app:fabSize="normal"
+                    app:layout_anchor="@+id/bottomNavigation"
+                    app:layout_anchorGravity="center"
+                    app:hideOnScroll="false"
+                    />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:itemIconTint="@color/eggshell"
+            app:itemTextColor="@color/eggshell"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/navdrawer_menu"
+            android:background="@color/colorPrimary"
+            />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

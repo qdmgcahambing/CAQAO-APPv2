@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.caqao.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_assessFragment"
+            app:destination="@id/assessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_defectsFragment"
+            app:destination="@id/defectsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fissuringFragment"
+            app:destination="@id/fissuringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/assessFragment"
+        android:name="com.example.caqao.fragments.AssessFragment"
+        android:label="Quality Assess"
+        tools:layout="@layout/fragment_assess" >
+        <action
+            android:id="@+id/action_assessFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.caqao.fragments.ResultsFragment"
+        android:label="Results"
+        tools:layout="@layout/fragment_results" />
+    <fragment
+        android:id="@+id/defectsFragment"
+        android:name="com.example.caqao.fragments.DefectsFragment"
+        android:label="fragment_defects"
+        tools:layout="@layout/fragment_defects" />
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.example.caqao.fragments.ColorFragment"
+        android:label="fragment_color"
+        tools:layout="@layout/fragment_color" />
+    <fragment
+        android:id="@+id/fissuringFragment"
+        android:name="com.example.caqao.fragments.FissuringFragment"
+        android:label="fragment_fissuring"
+        tools:layout="@layout/fragment_fissuring" />
+    <fragment
+        android:id="@+id/AboutUsFragment"
+        android:name="com.example.caqao.fragments.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="com.example.caqao.fragments.FAQsFragment"
+        android:label="fragment_f_a_q"
+        tools:layout="@layout/fragment_f_a_q" />
+    <fragment
+        android:id="@+id/ProfileFragment"
+        android:name="com.example.caqao.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.example.caqao.fragments.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_cacaoDetailFragment"
+            app:destination="@id/cacaoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.example.caqao.fragments.AnalyticsFragment"
+        android:label="fragment_analytics"
+        tools:layout="@layout/fragment_analytics" />
+    <fragment
+        android:id="@+id/cacaoDetailFragment"
+        android:name="com.example.caqao.caqaodetail.CacaoDetailFragment"
+        android:label="CacaoDetailFragment" >
+        <argument
+            android:name="cacaoDetectionId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_cacaoDetailFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+</navigation>

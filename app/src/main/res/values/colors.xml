@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  APP Primary Colors  -->
+    <color name="colorPrimary">#391D0C</color>
+    <color name="colorPrimaryDark">#482611</color>
+    <color name="colorPrimaryLight">#863E15</color>
+
+    <!--  APP Secondary Colors  -->
+    <color name="colorSecondary">#C8934F</color>
+    <color name="colorSecondaryDark">#F8B430</color>
+    <color name="colorSecondaryLight">#F3D385</color>
+
+
+    <color name="colorBackground">#F3ECDA</color>
+    <color name="colorAccent">#9B5A46</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <!--  Default colors  -->
+    <color name="purple_200">#5FF9FF</color>
+    <color name="purple_500">#34E3AF</color>
+    <color name="purple_700">#29B58B</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <!-- MainAct2 Colors -->
+    <color name="american_bronze">#391D0C</color>
+    <color name="seal_brown">#482611</color>
+    <color name="saddle_brown">#863E15</color>
+    <color name="saffron">#F8B430</color>
+    <color name="buff">#F3D385</color>
+    <color name="eggshell">#F3ECDA</color>
+    <color name="floral_white">#F1F4FB</color>
+    <color name="grullo">#AB9E93</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#FF0000</color>
+
+</resources>

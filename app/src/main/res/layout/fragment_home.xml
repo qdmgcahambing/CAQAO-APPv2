@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    tools:context=".fragments.HomeFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.caqao.models.CacaoDetectionViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_rectangle_down"
+                    app:layout_constraintBottom_toTopOf="@+id/discover"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/monoyellow_txt_logo"
+                    android:layout_width="156dp"
+                    android:layout_height="59dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/caqao_text_logo_monoyellow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/caqao_abbrv"
+                    android:layout_width="250dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/lato_light"
+                    android:text="Cacao Automated Quality Assessment using Object Detection"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monoyellow_txt_logo" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:src="@drawable/caqao_new_logo_yellow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/discover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="Discover"
+                    android:textColor="@color/black"
+                    android:textSize="32sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/caqao_abbrv" />
+
+                <TextView
+                    android:id="@+id/classgrps_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Classification Groups"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/discover" />
+
+                <HorizontalScrollView
+                    android:id="@+id/classgrps"
+                    android:layout_width="386dp"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="10dp"
+                    android:fillViewport="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classgrps_title">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:columnCount="3"
+                        android:rowCount="1"
+                        android:paddingRight="10dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/defects_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="175dp"
+                            android:layout_height="180dp"
+                            android:clickable="true"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:layout_marginTop="-26dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/defects_card">
+                            </ImageView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="140dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Defective beans"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="160dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_light"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Common defects"/>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/color_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="175dp"
+                            android:layout_height="180dp"
+                            android:clickable="true"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:layout_marginTop="-26dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/color_card">
+                            </ImageView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="140dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Color"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="160dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_light"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Fermentation level"/>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/fissuring_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="175dp"
+                            android:layout_height="180dp"
+                            android:clickable="true"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:layout_marginTop="-26dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/fissuring_card">
+                            </ImageView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="140dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Fissuring"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="160dp"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/lato_light"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:layout_gravity="center_horizontal|left"
+                                android:text="Fermentation level"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </GridLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/featured_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Featured"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classgrps" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/beangrading_card"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/colorSecondaryLight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/featured_title"
+                    android:clickable="true"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/beangrading_card"
+                        android:scaleType="fitXY"
+                        >
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_width="152dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/rounded_rectangle_legend"
+                        android:backgroundTint="@color/colorSecondaryLight"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bean Grading"
+                            android:fontFamily="@font/lato_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_horizontal|center_vertical"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/beancutting_card"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="80dp"
+                    android:backgroundTint="@color/colorSecondaryLight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/beangrading_card"
+                    android:clickable="true"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/beancutting_card"
+                        android:scaleType="fitXY">
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_width="152dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/rounded_rectangle_legend"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bean Cutting"
+                            android:fontFamily="@font/lato_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_horizontal|center_vertical"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            android:layout_marginBottom="80dp"-->
+<!--            android:gravity="bottom"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--                android:id="@+id/uploadButton"-->
+<!--                android:layout_width="140dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Upload"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/colorSecondaryLight"-->
+<!--                android:clickable="true"-->
+<!--                android:contentDescription="Upload"-->
+<!--                android:elevation="8dp"-->
+<!--                android:focusable="true"-->
+<!--                app:icon="@drawable/baseline_file_upload_24"-->
+<!--                android:visibility="invisible"/>-->
+
+<!--            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--                android:id="@+id/cameraButton"-->
+<!--                android:layout_width="140dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Capture"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:clickable="true"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/colorSecondary"-->
+<!--                android:contentDescription="Capture"-->
+<!--                android:elevation="8dp"-->
+<!--                android:focusable="true"-->
+<!--                app:icon="@drawable/baseline_photo_camera_24"-->
+<!--                android:visibility="invisible" />-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/more_button"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom|end"-->
+<!--                android:backgroundTint="@color/colorPrimary"-->
+<!--                android:clickable="true"-->
+<!--                android:contentDescription="More"-->
+<!--                app:elevation="8dp"-->
+<!--                android:focusable="true"-->
+<!--                android:src="@drawable/more_button"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:tint="@color/colorBackground"-->
+<!--                />-->
+
+<!--        </LinearLayout>-->
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.CacaoDetailFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.caqao.caqaodetail.CacaoDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/resultsRoundedRectangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@drawable/rounded_rectangle_down"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/cacao_detect_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="35dp"
+                    app:caqaoApiStatus="@{viewModel.status}"
+                    app:imageUrl="@{viewModel.cacaoDetection.imgSrcUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/qaResults"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="Quality Assessment Results"
+                    android:textColor="@color/black"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resultsRoundedRectangle" />
+
+                <TextView
+                    android:id="@+id/title_beanGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Bean Grade:"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/qaResults" />
+
+                <TextView
+                    android:id="@+id/beanGrade"
+                    android:layout_width="145dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_rectangle"
+                    android:text="@{viewModel.cacaoDetection.beanGrade}"
+                    app:layout_constraintStart_toEndOf="@+id/title_beanGrade"
+                    app:layout_constraintTop_toBottomOf="@id/qaResults"/>
+
+                <TextView
+                    android:id="@+id/title_beanGradeLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Legend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/beanGradeLegend"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_beanGrade" />
+
+                <HorizontalScrollView
+                    android:id="@+id/beanGradeLegend"
+                    android:layout_width="386dp"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="10dp"
+                    android:fillViewport="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_beanGradeLegend">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:columnCount="6"
+                        android:rowCount="1"
+                        android:paddingRight="10dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g1a_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 1A"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:padding="10dp"
+                                android:text="@string/grade1a"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g1b_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 1B"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/grade1b"
+                                android:padding="10dp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g1c_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 1C"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/grade1c"
+                                android:textSize="14sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g2a_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 2A"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/grade2a"
+                                android:textSize="14sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g2b_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 2B"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/grade2b"
+                                android:textSize="14sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g2c_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorPrimaryLight"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 2C"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/grade2c"
+                                android:textSize="13sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </GridLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/titleCacaoDefectBarChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Defect Classification"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/beanGradeLegend" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/cacaoDefectBarChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/rounded_rectangle"
+                    app:cacaoDefectBarChart="@{viewModel.cacaoDetection}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleCacaoDefectBarChart" />
+
+                <TextView
+                    android:id="@+id/title_defectsLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Legend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/defectsLegend"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cacaoDefectBarChart" />
+
+                <HorizontalScrollView
+                    android:id="@+id/defectsLegend"
+                    android:layout_width="386dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp"
+                    android:fillViewport="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_defectsLegend">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="190dp"
+                        android:columnCount="4"
+                        android:rowCount="1"
+                        android:paddingRight="10dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/mouldy_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#6D9D5C"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Mouldy"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:padding="20dp"
+                                android:text="@string/mouldy_description"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/black">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/insect_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="140dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="@color/colorSecondaryDark"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Insect-infested"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/insect_description"
+                                android:padding="20dp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/black">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/slate_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="140dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#768692"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Slate"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/slate_description"
+                                android:textSize="14sp"
+                                android:padding="20dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/black">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/germinated_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#AD8D6F"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Germinated"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/germinated_description"
+                                android:textSize="14sp"
+                                android:padding="20dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/black">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </GridLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/titleCacaoColorBarChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Color Classification"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/defectsLegend" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/cacaoColorBarChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/rounded_rectangle"
+                    app:cacaoColorBarChart="@{viewModel.cacaoDetection}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleCacaoColorBarChart" />
+
+                <TextView
+                    android:id="@+id/title_colorLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Legend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/colorLegend"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cacaoColorBarChart" />
+
+                <HorizontalScrollView
+                    android:id="@+id/colorLegend"
+                    android:layout_width="386dp"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="10dp"
+                    android:fillViewport="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_colorLegend">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:columnCount="4"
+                        android:rowCount="1"
+                        android:paddingRight="10dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/brown_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#964B00"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Brown"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:padding="10dp"
+                                android:text="@string/color_brown_description"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/partlypurple_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#9C44AC"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Partly Purple"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/color_partlypurple_description"
+                                android:padding="10dp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/totalpurple_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#660483"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Total Purple"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/color_partlypurple_description"
+                                android:textSize="14sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/verydarkbrown_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#381C00"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Very Dark Brown"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/color_verydarkbrown_description"
+                                android:textSize="14sp"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </GridLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/titleFissuringGradeBarChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Fissuring Grade Classification"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/colorLegend" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/fissuringGradeBarChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/rounded_rectangle"
+                    app:fissuringGradeBarChart="@{viewModel.cacaoDetection}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleFissuringGradeBarChart" />
+
+                <TextView
+                    android:id="@+id/title_fissuringLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Legend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/fissuringLegend"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fissuringGradeBarChart" />
+
+                <HorizontalScrollView
+                    android:id="@+id/fissuringLegend"
+                    android:layout_width="386dp"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="10dp"
+                    android:fillViewport="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_fissuringLegend">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:columnCount="4"
+                        android:rowCount="1"
+                        android:paddingRight="10dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g1_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#285780"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 1"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:padding="10dp"
+                                android:text="@string/g1_description"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g2_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#006EB3"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 2"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/g2_description"
+                                android:padding="10dp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/white">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g3_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#4AC9E3"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 3"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/g3_description"
+                                android:textSize="14sp"
+                                android:textColor="@color/black"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/g4_legend_card"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_width="170dp"
+                            android:layout_height="160dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#B7DDE1"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="vertical"
+                                android:background="@color/colorSecondary">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_bold"
+                                    android:text="Grade 4"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:layout_margin="8dp"
+                                    android:layout_gravity="center_horizontal"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:text="@string/g4_description"
+                                android:textSize="14sp"
+                                android:textColor="@color/black"
+                                android:padding="10dp"
+                                android:fontFamily="@font/lato">
+
+                            </TextView>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </GridLayout>
+                </HorizontalScrollView>
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="132dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/sign_in_btn"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorSecondaryLight"
+                    android:text="Delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fissuringLegend"
+                    tools:ignore="NotSibling" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

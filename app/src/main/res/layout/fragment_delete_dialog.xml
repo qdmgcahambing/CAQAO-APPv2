@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.DeleteDialogFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.caqao.caqaodetail.CacaoDetailViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="420dp"
+                android:layout_height="190dp"
+                app:cardBackgroundColor="@color/colorBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="55dp"
+                    android:text="Are you sure you want to delete this image?"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancel_btn"
+                    android:layout_width="132dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/sign_up_btn"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/delete_btn"
+                    android:layout_width="132dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginStart="220dp"
+                    android:background="@drawable/sign_in_btn"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Delete"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="18sp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </FrameLayout>
+</layout>
