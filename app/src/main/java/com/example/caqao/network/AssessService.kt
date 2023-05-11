@@ -13,7 +13,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "http://192.168.1.7:5000"
+private const val BASE_URL = "http://192.168.55.126:5000"
 
 val client = OkHttpClient.Builder()
     .connectTimeout(30, TimeUnit.SECONDS)
