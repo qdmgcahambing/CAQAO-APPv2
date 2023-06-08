@@ -33,7 +33,7 @@ class GalleryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as AppCompatActivity).supportActionBar?.title = "Gallery"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Gallery"
 
         binding = FragmentGalleryBinding.inflate(inflater)
 
@@ -105,7 +105,7 @@ class GalleryFragment : Fragment() {
                 override fun handleOnBackPressed() {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                    (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                    (activity as AppCompatActivity).supportActionBar?.title = "Home"
                     val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
                     botnav.show(R.id.homeFragment, true)
                 }

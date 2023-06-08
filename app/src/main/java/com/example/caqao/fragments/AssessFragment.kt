@@ -42,8 +42,9 @@ class AssessFragment : Fragment() {
 
     private var binding: FragmentAssessBinding? = null
     private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
+    private var retryClickListener : retryBtnClickListener? = null
 
-        override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -51,7 +52,27 @@ class AssessFragment : Fragment() {
         val fragmentBinding = FragmentAssessBinding.inflate(inflater, container, false)
         binding = fragmentBinding
 
+        fragmentBinding.retryBtn.setOnClickListener {
+            showBottomDialog()
+        }
+        fragmentBinding.captureAgainBtn.setOnClickListener {
+            showBottomDialog()
+        }
+
         return fragmentBinding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is retryBtnClickListener){
+            retryClickListener = context
+        }else{
+            throw IllegalArgumentException("Activity must implement MyButtonClickListener")
+        }
+    }
+
+    private fun showBottomDialog(){
+        retryClickListener?.showBottomDialog()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,7 +83,7 @@ class AssessFragment : Fragment() {
             assessBtn.setOnClickListener {
                 assessCacaoBeans()
             }
-            captureAgainBtn.setOnClickListener {
+//            captureAgainBtn.setOnClickListener {
                //  sharedViewModel.selectImage(null)
 //                cameraCheckPermission()
 //                Toast.makeText(
@@ -75,10 +96,13 @@ class AssessFragment : Fragment() {
 //                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 //                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
 
-             requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
-            }
+//             requireActivity().supportFragmentManager.beginTransaction()
+//                    .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//
+//                val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+//                botnav.show(R.id.homeFragment, true)
+//            }
         }
         sharedViewModel.validateImage(requireContext(), requireContext().contentResolver)
 
@@ -88,7 +112,10 @@ class AssessFragment : Fragment() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                 // Actionbar title set to Home
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+                botnav.show(R.id.homeFragment, true)
 
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
                 fab.visibility = View.VISIBLE
@@ -102,7 +129,7 @@ class AssessFragment : Fragment() {
         fab.visibility = View.GONE
 
         // Actionbar title set to Assess Capture
-        (activity as AppCompatActivity).supportActionBar?.title = "Assess Capture"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Assess Capture"
     }
 
 
@@ -124,6 +151,10 @@ class AssessFragment : Fragment() {
                     .replace(R.id.nav_host_fragment, ResultsFragment()).commit()
             }
         }
+    }
+
+    interface retryBtnClickListener{
+        fun showBottomDialog()
     }
 
 

@@ -48,7 +48,7 @@ class OnboardingActivity : AppCompatActivity() {
                 ),
                 OnboardingItem(
                     onboardingImage = R.drawable.main_feature,
-                    title = "Main Feature",
+                    title = "MAIN FEATURES",
                     description = "Capture or Upload a picture of your cut \n" +
                             "test cacao beans in a guillotine, enter the\n" +
                             "bean size, then click assess"

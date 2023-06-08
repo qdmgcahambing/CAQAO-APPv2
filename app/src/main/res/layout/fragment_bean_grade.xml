@@ -66,11 +66,13 @@
                 android:justificationMode="inter_word"
                 android:paddingLeft="10dp"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/pns_grading_table"
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                android:background="@color/transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/beangrade_description"

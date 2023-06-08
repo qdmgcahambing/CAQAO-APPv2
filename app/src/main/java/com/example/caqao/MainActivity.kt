@@ -48,7 +48,7 @@ import java.util.*
 private const val CAMERA_REQUEST_CODE = 1
 private const val GALLERY_REQUEST_CODE = 2
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity(R.layout.activity_main), AssessFragment.retryBtnClickListener {
 
     private lateinit var navController: NavController
     private lateinit var bottomNavigation: MeowBottomNavigation
@@ -81,29 +81,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // bottom nav
-//        addFragment(HomeFragment.newInstance())
+        // bottom navigation
         bottomNavigation = findViewById(R.id.bottomNavigation)
         bottomNavigation.show(R.id.homeFragment)
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.homeFragment, R.drawable.baseline_home_24))
         bottomNavigation.add(MeowBottomNavigation.Model(R.id.galleryFragment , R.drawable.ic_photo))
 
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            showBottomDialog()
-        }
-
-
         bottomNavigation.setOnClickMenuListener {
             when (it.id) {
                 R.id.homeFragment -> {
                     replaceFragment(HomeFragment.newInstance())
-                    supportActionBar!!.title = "Home"
+//                    supportActionBar!!.title = "Home"
                 }
                 R.id.galleryFragment -> {
                     replaceFragment(GalleryFragment.newInstance())
-                    supportActionBar!!.title = "Gallery"
+//                    supportActionBar!!.title = "Gallery"
                 }
 
                 else -> {
@@ -113,34 +105,46 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         }
 
+        // FAB in bottom navigation
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            showBottomDialog()
+        }
+
         //drawer layout
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                    supportActionBar!!.title = "Home"
+//                    supportActionBar!!.title = "Home"
                     bottomNavigation.show(R.id.homeFragment, true)
 
                 }
                 R.id.AboutUsFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, AboutUsFragment()).commit()
-                    supportActionBar!!.title = "About Us"
+//                    supportActionBar!!.title = "About Us"
                 }
                 R.id.FAQFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, FAQsFragment()).commit()
-                    supportActionBar!!.title = "FAQ"
+//                    supportActionBar!!.title = "FAQs"
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
 
+        // since the assess fragment was instantiated, the activity reference is passed
+        val assessFragment = AssessFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.assess_layout, assessFragment)
+
     }
 
-    private fun showBottomDialog() {
+    // bottom sheet for capture and upload
+    override fun showBottomDialog() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.bottom_sheet_layout)
@@ -160,6 +164,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         dialog.show()
         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
         dialog.window?.setGravity(Gravity.BOTTOM)
     }
 

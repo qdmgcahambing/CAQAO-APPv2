@@ -44,17 +44,37 @@ class ResultsFragment : Fragment() {
 
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+                botnav.show(R.id.homeFragment, true)
 
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
                 fab.visibility = View.VISIBLE
+            }
+
+//            // Showing Image Dialog
+            cacaoDetectResult.setOnClickListener {
+                val showDetectResultDialog = ResultsDialogFragment()
+                val args = Bundle()
+                viewModel!!.cacaoDetection.value?.id?.let { it1 ->
+                    args.putInt("cacaoDetectionId",
+                        it1
+                    )
+                }
+                showDetectResultDialog.arguments = args
+                showDetectResultDialog.show((activity as AppCompatActivity).supportFragmentManager,
+                    "showDetectResultPopUp")
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+                botnav.show(R.id.homeFragment, true)
 
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
                 fab.visibility = View.VISIBLE
@@ -62,7 +82,7 @@ class ResultsFragment : Fragment() {
 
         })
 
-        (activity as AppCompatActivity).supportActionBar?.title = "Results"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Results"
 
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         view.visibility = View.GONE

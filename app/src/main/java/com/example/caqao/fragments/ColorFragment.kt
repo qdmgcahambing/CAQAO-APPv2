@@ -65,7 +65,7 @@ class ColorFragment : Fragment() {
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
 
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
                 fab.visibility = View.VISIBLE
@@ -78,7 +78,7 @@ class ColorFragment : Fragment() {
         val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
         fab.visibility = View.GONE
 
-        (activity as AppCompatActivity).supportActionBar?.title = "Color"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Color"
     }
 
 

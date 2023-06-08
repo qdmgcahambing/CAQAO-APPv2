@@ -25,7 +25,7 @@ class CacaoDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Actionbar title set to Image Details
-        (activity as AppCompatActivity).supportActionBar?.title = "Image Details"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Image Details"
         // Get a reference to the binding object and inflate the fragment views.
         val binding: FragmentCacaoDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_cacao_detail, container, false)

@@ -118,7 +118,7 @@ class FAQsFragment : Fragment() {
 
                 val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
                 botnav.show(R.id.homeFragment, true)
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
             }
 
         })

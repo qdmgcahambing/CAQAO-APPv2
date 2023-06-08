@@ -5,18 +5,22 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.caqao.R
 import com.example.caqao.caqaodetail.CacaoDetailViewModel
 import com.example.caqao.caqaodetail.CacaoDetailViewModelFactory
 import com.example.caqao.databinding.FragmentCacaoDetailDialogBinding
+import com.example.caqao.databinding.FragmentResultsDialogBinding
+import com.example.caqao.models.CacaoDetectionViewModel
 import kotlin.math.max
 import kotlin.math.min
 
 
-class CacaoDetailDialogFragment : DialogFragment() {
+class ResultsDialogFragment : DialogFragment() {
 
     private var scaleFactor = 1f
     private var lastX = 0f
@@ -30,8 +34,8 @@ class CacaoDetailDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentCacaoDetailDialogBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_cacao_detail_dialog, container, false)
+        val binding: FragmentResultsDialogBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_results_dialog, container, false)
 
         val rootView = binding.root
         val imageView = rootView.findViewById<ImageView>(R.id.cacao_detect_result)
@@ -59,22 +63,16 @@ class CacaoDetailDialogFragment : DialogFragment() {
             true
         }
 
-        val viewModelFactory = arguments?.getInt("cacaoDetectionId")
-            ?.let { CacaoDetailViewModelFactory(it) }
-
         // Get a reference to the ViewModel associated with this fragment.
-        val cacaoDetailViewModel =
-            viewModelFactory?.let {
-                ViewModelProvider(
-                    this, it
-                ).get(CacaoDetailViewModel::class.java)
-            }
+        val cacaoDetectionViewModel =
+            ViewModelProvider(
+                this
+            ).get(CacaoDetectionViewModel::class.java)
 
         arguments?.getInt("cacaoDetectionId")
-            ?.let { cacaoDetailViewModel?.getCacaoDetectionWithId(it) }
+            ?.let { cacaoDetectionViewModel.getCacaoDetections() }
 
-
-        binding.viewModel = cacaoDetailViewModel
+        binding.viewModel = cacaoDetectionViewModel
 
         binding.lifecycleOwner = this
 

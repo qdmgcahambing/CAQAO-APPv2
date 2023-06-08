@@ -63,7 +63,7 @@ class FissuringFragment : Fragment() {
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
-                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+//                (activity as AppCompatActivity).supportActionBar?.title = "Home"
 
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
                 fab.visibility = View.VISIBLE
@@ -73,7 +73,7 @@ class FissuringFragment : Fragment() {
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
 
         view.visibility = View.GONE
-        (activity as AppCompatActivity).supportActionBar?.title = "Fissuring"
+//        (activity as AppCompatActivity).supportActionBar?.title = "Fissuring"
 
         val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
         fab.visibility = View.GONE

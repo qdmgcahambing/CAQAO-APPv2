@@ -3,7 +3,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.AssessFragment">
+    tools:context=".fragments.AssessFragment"
+    android:id="@+id/assess_layout">
 
     <data>
         <variable
@@ -18,7 +19,7 @@
 
         <LinearLayout
             android:id="@+id/assessRoundedRectangle"
-            android:layout_width="415dp"
+            android:layout_width="match_parent"
             android:layout_height="380dp"
             android:layout_marginTop="-1dp"
             android:layout_marginBottom="0dp"
@@ -139,6 +140,26 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/retry_btn"
+            android:layout_width="132dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/sign_up_btn"
+            android:backgroundTint="@color/colorSecondaryDark"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="Retry"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintEnd_toStartOf="@id/assess_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
         <Button
             android:id="@+id/assess_btn"
@@ -146,13 +167,16 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="100dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="50dp"
             android:background="@drawable/sign_in_btn"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="@color/colorSecondaryLight"
             android:text="Assess"
+            android:fontFamily="@font/lato_bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/retry_btn"
             app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:imageValidationStatusButton="@{viewModel.imageValidationStatus}"/>
@@ -166,7 +190,7 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="@color/colorSecondaryLight"
-            android:text="Retake/Reupload Image"
+            android:text="Retake/Reupload"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/errorMessage"
