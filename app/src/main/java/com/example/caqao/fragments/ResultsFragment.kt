@@ -66,6 +66,8 @@ class ResultsFragment : Fragment() {
                 showDetectResultDialog.show((activity as AppCompatActivity).supportFragmentManager,
                     "showDetectResultPopUp")
             }
+
+
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {

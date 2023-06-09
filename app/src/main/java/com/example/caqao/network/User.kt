@@ -16,5 +16,7 @@ data class UserAccountCreationStatus(
 data class UserLoginStatus(
     val message: String = "",
     val status: Int? = null,
-    val token: String = ""
+    val token: String = "",
+    val email: String = "",
+    val username: String = "",
 )

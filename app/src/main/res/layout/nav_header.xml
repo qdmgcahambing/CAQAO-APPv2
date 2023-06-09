@@ -16,7 +16,6 @@
         android:background="@drawable/rounded_rectangle_down"
         />
 
-
     <ImageView
         android:id="@+id/icon"
         android:layout_width="@dimen/_120sdp"

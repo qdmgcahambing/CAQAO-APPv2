@@ -88,10 +88,6 @@
                     app:hideOnScroll="false"
                     />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
-
         </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView

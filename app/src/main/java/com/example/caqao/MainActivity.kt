@@ -16,6 +16,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -47,6 +48,8 @@ import java.util.*
 
 private const val CAMERA_REQUEST_CODE = 1
 private const val GALLERY_REQUEST_CODE = 2
+var USERNAME = ""
+var EMAIL = ""
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), AssessFragment.retryBtnClickListener {
 
@@ -55,7 +58,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), AssessFragment.r
     private lateinit var drawerLayout: DrawerLayout
     private var isSelected = false
     private val sharedViewModel: CacaoDetectionViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +72,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), AssessFragment.r
         setSupportActionBar(toolbar)
         val navView = findViewById<NavigationView>(R.id.navView)
         navView.setupWithNavController(navController)
+
+        // Update Username and Email text in drawer layout
+        val navHeaderView = navView.getHeaderView(0)
+        val headerUsername = navHeaderView.findViewById<TextView>(R.id.textView3)
+        val headerEmail = navHeaderView.findViewById<TextView>(R.id.textView4)
+        headerUsername.text = USERNAME
+        headerEmail.text = EMAIL
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -140,6 +149,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), AssessFragment.r
         val assessFragment = AssessFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.assess_layout, assessFragment)
+
 
     }
 
