@@ -8,12 +8,14 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.caqao.R
 import com.example.caqao.caqaodetail.CacaoDetailViewModel
 import com.example.caqao.caqaodetail.CacaoDetailViewModelFactory
 import com.example.caqao.databinding.FragmentCacaoDetailDialogBinding
+import com.example.caqao.databinding.FragmentResultsBinding
 import com.example.caqao.databinding.FragmentResultsDialogBinding
 import com.example.caqao.models.CacaoDetectionViewModel
 import kotlin.math.max
@@ -28,16 +30,21 @@ class ResultsDialogFragment : DialogFragment() {
     private var posX = 0f
     private var posY = 0f
 
+    private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
+    private var binding: FragmentResultsDialogBinding? = null
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentResultsDialogBinding = DataBindingUtil.inflate(
+        val fragmentBinding: FragmentResultsDialogBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_results_dialog, container, false)
 
-        val rootView = binding.root
+        binding = fragmentBinding
+
+        val rootView = fragmentBinding.root
         val imageView = rootView.findViewById<ImageView>(R.id.cacao_detect_result)
         val detector = ScaleGestureDetector(requireContext(), ScaleListener(imageView))
 
@@ -63,19 +70,6 @@ class ResultsDialogFragment : DialogFragment() {
             true
         }
 
-        // Get a reference to the ViewModel associated with this fragment.
-        val cacaoDetectionViewModel =
-            ViewModelProvider(
-                this
-            ).get(CacaoDetectionViewModel::class.java)
-
-        arguments?.getInt("cacaoDetectionId")
-            ?.let { cacaoDetectionViewModel.getCacaoDetections() }
-
-        binding.viewModel = cacaoDetectionViewModel
-
-        binding.lifecycleOwner = this
-
         return rootView
     }
 
@@ -91,6 +85,11 @@ class ResultsDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply {
+            viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
+        }
 
         val closeButton = view.findViewById<ImageButton>(R.id.closeBtn)
         closeButton.setOnClickListener {

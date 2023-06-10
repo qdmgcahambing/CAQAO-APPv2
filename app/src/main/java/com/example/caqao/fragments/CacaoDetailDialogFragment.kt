@@ -7,11 +7,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.caqao.R
 import com.example.caqao.caqaodetail.CacaoDetailViewModel
 import com.example.caqao.caqaodetail.CacaoDetailViewModelFactory
 import com.example.caqao.databinding.FragmentCacaoDetailDialogBinding
+import com.example.caqao.models.CacaoDetectionViewModel
 import kotlin.math.max
 import kotlin.math.min
 
@@ -23,6 +25,8 @@ class CacaoDetailDialogFragment : DialogFragment() {
     private var lastY = 0f
     private var posX = 0f
     private var posY = 0f
+
+    private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(

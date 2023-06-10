@@ -6,6 +6,8 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
+import com.example.caqao.EMAIL
+import com.example.caqao.USERNAME
 import com.example.caqao.network.*
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.launch
@@ -47,6 +49,8 @@ class CacaoDetectionViewModel: ViewModel() {
 
     private val _userLoginStatus = MutableLiveData<UserLoginStatus?>()
     val userLoginStatus: LiveData<UserLoginStatus?> = _userLoginStatus
+
+
 
     init {
         resetCacaoDetection()
@@ -135,7 +139,6 @@ class CacaoDetectionViewModel: ViewModel() {
 
         viewModelScope.launch {
             try {
-                // TODO: send image to the server and check if the image contains cacao beans or not
                 _imageValidationStatus.value = CacaoApi.retrofitService.validateImage(imageFilePart)
                 val response = _imageValidationStatus.value
                 if (response?.status == 200) {
@@ -183,7 +186,13 @@ class CacaoDetectionViewModel: ViewModel() {
                 _userLoginStatus.value?.status?.let { deferred.complete(it) }
                 USER_TOKEN = _userLoginStatus.value?.token
                 Log.d("UserToken", "${_userLoginStatus.value?.token}")
+
+                USERNAME = _userLoginStatus.value!!.username
+                EMAIL = _userLoginStatus.value!!.email
+                //Log.d("UserName", "${_userLoginStatus.value?.username}")
+                //Log.d("UserEmail", "${_userLoginStatus.value?.email}")
             } catch (e: Exception) {
+                deferred.complete(401)
                 Log.d("UserLoginFailed", "${e.message}")
             }
         }
