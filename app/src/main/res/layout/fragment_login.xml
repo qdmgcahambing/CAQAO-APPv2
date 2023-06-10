@@ -125,19 +125,19 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:layout_marginRight="@dimen/_31sdp"
-                    android:clickable="true"
-                    android:text="Forgot Password?"
-                    android:textColor="@color/american_bronze"
-                    android:textSize="@dimen/_13sdp"
-                    android:fontFamily="@font/lato"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/password_text_layout" />
+<!--                <TextView-->
+<!--                    android:id="@+id/forgot_password"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_4sdp"-->
+<!--                    android:layout_marginRight="@dimen/_31sdp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:text="Forgot Password?"-->
+<!--                    android:textColor="@color/american_bronze"-->
+<!--                    android:textSize="@dimen/_13sdp"-->
+<!--                    android:fontFamily="@font/lato"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/password_text_layout" />-->
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/signIn_btn"
