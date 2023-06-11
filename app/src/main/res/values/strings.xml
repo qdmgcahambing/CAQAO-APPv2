@@ -106,7 +106,7 @@
     <string name="answer8">To view capture images, navigate to gallery page by clicking the gallery icon in the bottom navigation.</string>
     <string name="answer9">To assess the photo, click Assess button in the Quality Assess Capture page after capturing or uploading a photo. Enter bean count, then click Assess button.</string>
     <string name="answer10">Bean size is the total number of cacao beans required per 100 grams.</string>
-    <string name="answer11">Please contact the developers by sending an email to: fjvinceatabay@gmail.com</string>
+
 
     <string name="beancutting_description">Bean cutting is an important step in the process of evaluating the quality of cacao beans, and it must be done properly to ensure that all beans are cut cleanly and accurately. If the cutting is not done correctly, there is a risk of missing some beans, which can affect the accuracy of the evaluation and the quality of the final product.</string>
     <string name="step1_description">Cacao beans should be carefully oriented with the cutting bed chamber. The long side of the bean should be lined up with the long side of the cutting bed. </string>

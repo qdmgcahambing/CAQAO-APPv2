@@ -103,12 +103,6 @@ class FAQsFragment : Fragment() {
                 context?.getString(R.string.answer8) ?: String()
             )
         )
-        mList.add(
-            RecyclerViewData(
-                "Forgot Password?",
-                context?.getString(R.string.answer11) ?: String()
-            )
-        )
 
     }
 
