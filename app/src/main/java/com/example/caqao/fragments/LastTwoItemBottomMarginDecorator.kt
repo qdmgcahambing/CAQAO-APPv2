@@ -13,26 +13,28 @@ class LastTwoItemBottomMarginDecorator(private val marginBottom: Int) : Recycler
     ) {
         val layoutManager = parent.layoutManager as? GridLayoutManager ?: return
 
-        //Get the number of columns in grid layout
         val spanCount = layoutManager.spanCount
-        // Get the total number of items in the adapter, or 0 if there is no adapter
         val childCount = parent.adapter?.itemCount ?: 0
-        // Index or position of current item
         val childIndex = parent.getChildAdapterPosition(view)
 
-        // Calculate the index of the last row in the grid layout
-        val lastRowIndex = (childCount - 1) / spanCount
+        // Calculate the total number of rows in the grid layout
+        val rowCount = (childCount + spanCount - 1) / spanCount
         // Calculate the index of the first item in the last row
-        val lastRowFirstIndex = lastRowIndex * spanCount
+        val lastRowFirstIndex = (rowCount - 1) * spanCount
         // Calculate the index of the last item in the last row
         val lastRowLastIndex = minOf(childCount - 1, lastRowFirstIndex + spanCount - 1)
 
-        // Add margin to the bottom of the last row
-        if (childIndex in lastRowFirstIndex..lastRowLastIndex) {
-            outRect.bottom = marginBottom
+        if (childCount % 2 == 0) {
+            // Total number of items is even, apply margins to the last two items
+            if (childIndex >= lastRowFirstIndex) {
+                outRect.bottom = marginBottom
+            }
+        } else {
+            // Total number of items is odd, apply margin to the last item
+            if (childIndex == childCount - 1) {
+                outRect.bottom = marginBottom
+            }
         }
     }
-
-
 }
 
